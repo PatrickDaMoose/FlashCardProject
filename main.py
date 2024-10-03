@@ -17,10 +17,7 @@ def next_word(iscorrect, isfirst):
     global still_to_learn
     temp_dict = random.choice(translate_list)
     if iscorrect is True and isfirst > 0:
-        print(isfirst)
         translate_list.remove(temp_dict)
-    elif iscorrect is False and isfirst > 0:
-        print(translate_list)
     canvas.itemconfig(canvas_image, image=card_front)
     canvas.itemconfig(lang_text, text="French")
     canvas.itemconfig(flash_text, text=temp_dict["French"])
@@ -49,7 +46,6 @@ def incorrect_func():
 
 def export():
     global translate_list
-    print(translate_list)
     export_df = pandas.DataFrame.from_records(translate_list)
     export_df.to_csv("still_to_learn.csv", mode="w", index=False)
 
@@ -60,7 +56,6 @@ def start():
 
 def print_dict():
     global translate_list
-    print(translate_list)
 
 
 # Build Window
